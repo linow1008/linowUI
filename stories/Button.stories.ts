@@ -1,52 +1,98 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
-import { Button } from './Button';
+import type { Meta, StoryObj } from '@storybook/react'
+import Button from '../app/_components/Button/TextButton/index'
+import { FaBeer, FaCoffee, FaSearch } from 'react-icons/fa'
+import { IconType } from 'react-icons/lib'
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-const meta = {
-  title: 'Example/Button',
+const iconOptions: { [key: string]: IconType | null } = {
+  None: null,
+  FaBeer,
+  FaSearch,
+  FaCoffee,
+}
+
+const meta: Meta<typeof Button> = {
+  title: 'Components/Button',
   component: Button,
-  parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
-    layout: 'centered',
-  },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    backgroundColor: { control: 'color' },
+    leftIcon: {
+      options: ['None', 'FaBeer', 'FaSearch', 'FaCoffee'],
+      control: { type: 'radio' },
+    },
+    rightIcon: {
+      options: ['None', 'FaBeer', 'FaSearch', 'FaCoffee'],
+      control: { type: 'radio' },
+    },
   },
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
-  args: { onClick: fn() },
-} satisfies Meta<typeof Button>;
+}
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof Button>
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
   args: {
-    primary: true,
-    label: 'Button',
+    children: 'Primary Button',
+    variant: 'solid',
+    color: 'primary',
   },
-};
+}
 
 export const Secondary: Story = {
   args: {
-    label: 'Button',
+    children: 'Secondary Button',
+    variant: 'outline',
+    color: 'secondary',
   },
-};
+}
 
-export const Large: Story = {
+export const Danger: Story = {
   args: {
-    size: 'large',
-    label: 'Button',
+    children: 'Danger Button',
+    variant: 'solid',
+    color: 'danger',
   },
-};
+}
 
-export const Small: Story = {
+export const OutlineSuccess: Story = {
   args: {
-    size: 'small',
-    label: 'Button',
+    children: 'Success Button',
+    variant: 'outline',
+    color: 'success',
   },
-};
+}
+
+export const Disabled: Story = {
+  args: {
+    children: 'Disabled Button',
+    variant: 'solid',
+    color: 'primary',
+    disabled: true,
+  },
+}
+
+export const FullWidth: Story = {
+  args: {
+    children: 'Full Width Button',
+    variant: 'solid',
+    color: 'info',
+    fullWidth: true,
+  },
+}
+
+export const WithLeftIcon: Story = {
+  args: {
+    children: 'With Left Icon',
+    variant: 'solid',
+    color: 'warning',
+    leftIcon: FaBeer,
+  },
+}
+
+export const WithRightIcon: Story = {
+  args: {
+    children: 'With Right Icon',
+    variant: 'solid',
+    color: 'secondary',
+    rightIcon: FaBeer,
+  },
+}

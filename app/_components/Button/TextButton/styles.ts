@@ -47,8 +47,8 @@ const getButtonStyles = ({
     css`
       background-color: ${variant === 'solid'
         ? `${colorStyles[color]}cc`
-        : 'transparent'};
-      color: ${variant === 'solid' ? '#fff' : `${colorStyles[color]}`};
+        : `${colorStyles[color]}33`};
+      color: ${variant === 'solid' ? '#fff' : `${colorStyles[color]}cc`};
     `}
   }
 `

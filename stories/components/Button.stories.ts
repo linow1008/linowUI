@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import Button from '../app/_components/Button/TextButton/index'
+import Button from '../../app/_components/Button/TextButton/index'
 import { FaBeer, FaCoffee, FaSearch } from 'react-icons/fa'
 import { IconType } from 'react-icons/lib'
 
@@ -18,15 +18,18 @@ const meta: Meta<typeof Button> = {
     leftIcon: {
       options: ['None', 'FaBeer', 'FaSearch', 'FaCoffee'],
       control: { type: 'radio' },
+      mapping: iconOptions,
     },
     rightIcon: {
       options: ['None', 'FaBeer', 'FaSearch', 'FaCoffee'],
       control: { type: 'radio' },
+      mapping: iconOptions,
     },
   },
 }
 
 export default meta
+
 type Story = StoryObj<typeof Button>
 
 export const Primary: Story = {

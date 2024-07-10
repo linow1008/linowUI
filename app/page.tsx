@@ -1,12 +1,15 @@
-import Button from '@/app/_components/Button/TextButton'
-import { FaSearch } from 'react-icons/fa'
+'use client'
+
+import Accordion1 from '@/app/_features/Accordion/Accordion1'
+import Modal from '@/app/_features/Modal/Modal'
+import { useState } from 'react'
+
 export default function Home() {
   return (
     <div className="w-full">
-      <div className="flex h-[100px] items-center justify-center">
-        <Button size={2} rightIcon={FaSearch} variant="outline">
-          버튼
-        </Button>
+      <div className="flex items-center justify-center space-x-10">
+        <Accordion1 />
+        <Accordion1 singleOpen />
       </div>
     </div>
   )
